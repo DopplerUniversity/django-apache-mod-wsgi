@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "${env:HOME}/.virtualenvs/django-apache-mod-wsgi/bin/python" ,
+    "python.languageServer": "Pylance",
+    "python.analysis.extraPaths": [
+        "src"
+    ]
+}

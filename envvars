@@ -1,0 +1,7 @@
+
+
+# Doppler environent variables
+DJANGO_SETTINGS_MODULE='doppler.settings'
+DEBUG='yes'
+ALLOWED_HOSTS='["*"]'
+SECRET_KEY='bf5e1b31-6ba7-48e2-9175-f2293671e6df'

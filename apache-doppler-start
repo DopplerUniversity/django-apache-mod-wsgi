@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+echo 'ServerName localhost' >> /etc/apache2/apache2.conf # Silence FQDN warning
+
+# Doppler CLI
+if [ -n "$DOPPLER_TOKEN" ]; then
+    echo '[info]: Appending environment variables to /etc/apache/envvars from Doppler CLI'
+    doppler secrets download --no-file | jq -r $'. | to_entries[] | "export \(.key)=\'\(.value)\'"' >> /etc/apache2/envvars
+fi
+
+# Mounted .env file
+if [ -f "$PWD/.env" ]; then
+    echo '[info]: Appending environment variables to /etc/apache/envvars from .env file'
+    cat "$PWD/.env" >> /etc/apache2/envvars
+fi
+
+# Run Apache
+apache2ctl -D FOREGROUND

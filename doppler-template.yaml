@@ -1,0 +1,14 @@
+projects:
+  - name: 'django-apache-mod-wsgi'
+    description: 'Testing project for Python Apps in Apache / mod_wsgi using Django'
+    environments:
+      - name: 'Development'
+        slug: 'dev'
+        configs:
+          - slug: 'dev'      
+    secrets:
+      dev:
+        DJANGO_SETTINGS_MODULE: 'doppler.settings'
+        DEBUG: 'yes'
+        ALLOWED_HOSTS: '["*"]'
+        SECRET_KEY: 'bf5e1b31-6ba7-48e2-9175-f2293671e6df'
